@@ -1,0 +1,7 @@
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\bin\Debug\Dragones_Y_Mazmorras.exe.config
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\bin\Debug\Dragones_Y_Mazmorras.exe
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\bin\Debug\Dragones_Y_Mazmorras.pdb
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\obj\Debug\Dragones_Y_Mazmorras.csproj.AssemblyReference.cache
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\obj\Debug\Dragones_Y_Mazmorras.csproj.CoreCompileInputs.cache
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\obj\Debug\Dragones_Y_Mazmorras.exe
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C#\Dragones_Y_Mazmorras\Dragones_Y_Mazmorras\obj\Debug\Dragones_Y_Mazmorras.pdb

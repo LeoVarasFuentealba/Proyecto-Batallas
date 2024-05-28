@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
+
+namespace CLS_Leandro_Varas
+{
+    public partial class oracle : Form
+    {
+        public oracle()
+        {
+            InitializeComponent();
+        }
+
+        private void gPBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.gPBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.f1_CLS_Leandro);
+
+        }
+
+        private void oracle_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'f1_CLS_Leandro.ClassificacioGP' Puede moverla o quitarla según sea necesario.
+            this.classificacioGPTableAdapter.Fill(this.f1_CLS_Leandro.ClassificacioGP);
+            // TODO: esta línea de código carga datos en la tabla 'f1_CLS_Leandro.Pilots' Puede moverla o quitarla según sea necesario.
+            this.pilotsTableAdapter.Fill(this.f1_CLS_Leandro.Pilots);
+            // TODO: esta línea de código carga datos en la tabla 'f1_CLS_Leandro.GP' Puede moverla o quitarla según sea necesario.
+            this.gPTableAdapter.Fill(this.f1_CLS_Leandro.GP);
+        }
+
+        private void descGPLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descGPComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fillByToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.gPTableAdapter.FillBy(this.f1_CLS_Leandro.GP);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+        private void get_cursor()
+        {
+            
+        }
+
+        private void idGPTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void descGPComboBox_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Resultados_Click(object sender, EventArgs e)
+        {
+            string conexion;
+
+            conexion = @"TNS_ADMIN=C:\Users\leova\Oracle\network\admin;USER ID=F1;PASSWORD=1234;DATA SOURCE=10.0.15.22:1521/XEPDB1";
+            OracleConnection cnn = new OracleConnection(conexion);
+
+            try
+            {
+                cnn.Open();
+
+                OracleCommand command = new OracleCommand();
+                command.Connection = cnn;
+                command.CommandText = "CURSOR_GPREMI.MOSTRAR_CURSOR";
+                command.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter idGP = new OracleParameter("id_gran_premi", OracleDbType.Int32, ParameterDirection.Input);
+                idGP.Value = 2;
+                command.Parameters.Add(idGP);
+
+                OracleParameter cur_results = new OracleParameter("cur_results", OracleDbType.RefCursor, ParameterDirection.Output);
+                command.Parameters.Add(cur_results);
+
+                command.ExecuteNonQuery();
+
+                OracleDataAdapter dta = new OracleDataAdapter(command);
+
+                DataSet dts = new DataSet();
+                dta.Fill(dts);
+
+                dataGridView1.DataSource = dts.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
+    }
+}
